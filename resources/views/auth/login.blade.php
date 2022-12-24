@@ -1,3 +1,4 @@
+{{--
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -45,3 +46,41 @@
         </div>
     </form>
 </x-guest-layout>
+--}}
+
+@extends('layouts.main')
+@section('content')
+    <div class="login-page">
+        <img src="/images/login-background.PNG" alt="">
+        <div class="login-form">
+            <div class="avatar">
+                <img src="{% static 'images/login-avatar.PNG' %}" alt="">
+            </div>
+            {% if messages %}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                <div class="alert {% if message.tags %} alert-{{ 'message.tags '}}{% endif %}">{{ message|safe }}</div>
+                {% endfor %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}
+            <h1>Login</h1>
+            <form action="{% url 'classroom:login' %}" method="post">
+                {% csrf_token %}
+                <p>Username:</p>
+                <input type="text" name="username" placeholder="Enter your username">
+                <br>
+                <br>
+                <p>Password:</p>
+                <input type="password" name="password" placeholder="Enter password">
+                <br>
+                <br>
+                <input class="btn btn-primary" type="submit" name="" value="Login">
+            </form>
+            <a href="{% url 'classroom:signup' %}">Don't have an account.</a>
+        </div>
+    </div>
+@endsection
+
