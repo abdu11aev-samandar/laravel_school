@@ -14,8 +14,8 @@ class Answer extends Model
         'score',
     ];
 
-    public function task()
+    public function assigment()
     {
-        return $this->hasOne(Task::class);
+        return $this->hasOne(Assigment::class);
     }
 }

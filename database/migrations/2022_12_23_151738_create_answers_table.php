@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->text('file_url');
-            $table->text('score')->nullable();
+            $table->text('mark')->nullable();
             $table->timestamps();
         });
     }

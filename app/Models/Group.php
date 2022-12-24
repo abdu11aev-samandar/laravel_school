@@ -26,8 +26,8 @@ class Group extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function tasks()
+    public function assigments()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Assigment::class);
     }
 }

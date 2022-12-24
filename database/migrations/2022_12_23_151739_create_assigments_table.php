@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('assigments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('answer_id')->constrained()->onDelete('cascade');
             $table->foreignId('group_id')->constrained()->onDelete('cascade');
             $table->text('file_url');
-            $table->text('max_score');
+            $table->text('max_mark');
             $table->timestamps();
         });
     }
