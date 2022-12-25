@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use App\Models\Assignment;
+use App\Models\Message;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'main'])->name('main');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [PageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -28,4 +28,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::get('message/{message}/read', [Message::class, 'read'])->name('message.read');
+    Route::get('applications/{assignment}/answer', [Assignment::class, 'create'])->name('assignment.create');
+    Route::post('applications/{assignment}/answer', [Assignment::class, 'store'])->name('assignment.store');
+});
+
+Route::resources([
+    'assignment' => Assignment::class,
+    'message' => Message::class,
+    'users' => UserController::class
+
+]);
+
+require __DIR__ . '/auth.php';

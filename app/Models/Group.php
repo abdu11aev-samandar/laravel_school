@@ -28,6 +28,6 @@ class Group extends Model
 
     public function assigments()
     {
-        return $this->hasMany(Assigment::class);
+        return $this->hasMany(Assignment::class);
     }
 }

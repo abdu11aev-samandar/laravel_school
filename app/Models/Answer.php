@@ -16,6 +16,6 @@ class Answer extends Model
 
     public function assigment()
     {
-        return $this->hasOne(Assigment::class);
+        return $this->hasOne(Assignment::class);
     }
 }

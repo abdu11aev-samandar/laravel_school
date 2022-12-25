@@ -1,1 +1,13 @@
-<?php
+@extends('layouts.main')
+@section('content')
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Submit Assignment</h1>
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-primary" name="" value="Submit">
+            </form>
+        </div>
+    </div>
+@endsection
