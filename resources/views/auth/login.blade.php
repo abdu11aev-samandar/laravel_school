@@ -54,9 +54,9 @@
         <img src="/images/login-background.PNG" alt="">
         <div class="login-form">
             <div class="avatar">
-                <img src="{% static 'images/login-avatar.PNG' %}" alt="">
+                <img src="/images/login-avatar.PNG" alt="">
             </div>
-            {% if messages %}
+            {{--{% if messages %}
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
                 {% for message in messages %}
                 <div class="alert {% if message.tags %} alert-{{ 'message.tags '}}{% endif %}">{{ message|safe }}</div>
@@ -65,10 +65,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            {% endif %}
+            {% endif %}--}}
             <h1>Login</h1>
-            <form action="{% url 'classroom:login' %}" method="post">
-                {% csrf_token %}
+            <form action="{{ route('login') }}" method="post">
+                @csrf
                 <p>Username:</p>
                 <input type="text" name="username" placeholder="Enter your username">
                 <br>
@@ -79,7 +79,7 @@
                 <br>
                 <input class="btn btn-primary" type="submit" name="" value="Login">
             </form>
-            <a href="{% url 'classroom:signup' %}">Don't have an account.</a>
+            <a href="{{ route('register') }}">Don't have an account.</a>
         </div>
     </div>
 @endsection

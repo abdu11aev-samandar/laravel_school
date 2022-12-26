@@ -10,7 +10,6 @@ class Group extends Model
     use HasFactory;
 
     protected $fillable = [
-        'task_id',
         'message_id',
         'name',
     ];
@@ -18,7 +17,7 @@ class Group extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function messages()
@@ -26,8 +25,8 @@ class Group extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function assigments()
+    public function subjects()
     {
-        return $this->hasMany(Assignment::class);
+        return $this->belongsToMany(Subject::class);
     }
 }

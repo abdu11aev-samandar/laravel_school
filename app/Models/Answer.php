@@ -10,8 +10,9 @@ class Answer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'assignment_id',
         'file_url',
-        'score',
+        'mark',
     ];
 
     public function assigment()

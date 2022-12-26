@@ -10,8 +10,7 @@ class Assignment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'group_id',
-        'answer_id',
+        'subject_id',
         'file_url',
         'max_score',
     ];
@@ -21,8 +20,8 @@ class Assignment extends Model
         return $this->hasOne(Answer::class);
     }
 
-    public function group()
+    public function subject()
     {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Subject::class);
     }
 }

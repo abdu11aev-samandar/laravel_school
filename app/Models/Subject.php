@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Subject extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'body',
+        'name'
     ];
 
-    public function group()
+    public function groups()
     {
-        return $this->belongsTo(Group::class);
+        $this->belongsToMany(Group::class);
     }
 
-    public function user()
+    public function assignments()
     {
-        return $this->belongsTo(User::class);
+        $this->hasMany(Assignment::class);
     }
 }

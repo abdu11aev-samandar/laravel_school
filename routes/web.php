@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -20,15 +21,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'main'])->name('main');
 
-Route::get('/dashboard', [PageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-Route::middleware('auth')->group(function () {
     Route::get('message/{message}/read', [Message::class, 'read'])->name('message.read');
     Route::get('applications/{assignment}/answer', [Assignment::class, 'create'])->name('assignment.create');
     Route::post('applications/{assignment}/answer', [Assignment::class, 'store'])->name('assignment.store');
@@ -37,8 +38,8 @@ Route::middleware('auth')->group(function () {
 Route::resources([
     'assignment' => Assignment::class,
     'message' => Message::class,
-    'users' => UserController::class
-
+    'users' => UserController::class,
+    'group' => GroupController::class
 ]);
 
 require __DIR__ . '/auth.php';

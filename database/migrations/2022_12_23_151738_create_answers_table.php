@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('assignment_id')->constrained()->onDelete('cascade');
             $table->text('file_url');
             $table->text('mark')->nullable();
             $table->timestamps();
