@@ -1,4 +1,4 @@
-<x-app-layout>
+{{--<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Profile') }}
@@ -26,4 +26,44 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-layout>--}}
+
+@extends('layouts.main')
+@section('content')
+    <div class="login-page">
+        <img src="/images/login-background.PNG" alt="">
+        <div class="login-form">
+            <div class="avatar">
+                <img src="/images/login-avatar.PNG" alt="">
+            </div>
+            {{--{% if messages %}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                <div class="alert {% if message.tags %} alert-{{ 'message.tags '}}{% endif %}">{{ message|safe }}</div>
+                {% endfor %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% endif %}--}}
+            <h1>Login</h1>
+            <form action="{{ route('password.update') }}" method="post">
+                @csrf
+                @method('PUT')
+                <p>Username:</p>
+                <input type="text" name="username" placeholder="Enter your username">
+                <br>
+                <br>
+                <p>Password:</p>
+                <input type="password" name="password" placeholder="Enter password">
+                <br>
+                <br>
+                <p>Confirm Password:</p>
+                <input type="password" name="password" placeholder="Confirm password">
+                <br>
+                <br>
+                <input class="btn btn-primary" type="submit" name="" value="">
+            </form>
+        </div>
+    </div>
+@endsection

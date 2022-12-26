@@ -24,9 +24,9 @@
                             <img src="{{ student.student_profile_pic.url }}" alt="">
                             {% else %}
                             {% if forloop.counter0|divisibleby:"2" %}
-                            <img src="{% static 'images/login-avatar.PNG' %}" alt="">
+                            <img src="/images/login-avatar.PNG" alt="">
                             {% else %}
-                            <img src="{% static 'images/login-avatar-2.PNG' %}" alt="">
+                            <img src="/images/login-avatar-2.PNG" alt="">
                             {% endif %}
                             {% endif %}
                         </div>
@@ -36,7 +36,7 @@
                             <p><i class="fal fa-user-tag"></i> Roll No.: {{ student.roll_no }}</p>
                             <p><i class="far fa-phone"></i> Phone: {{ student.phone }}</p>
                             <p><i class="far fa-envelope-open-text"></i> Email ID: {{ student.email }}</p>
-                            <a href="{% url 'classroom:add_student' pk=student.pk %}"><p class="add-button">ADD</p> </a>
+                            <a href="{{ route('register') }}"><p class="add-button">ADD</p> </a>
                         </div>
                     </div>
                 </div>

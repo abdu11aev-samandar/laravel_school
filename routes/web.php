@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'main'])->name('main');
-
+Route::get('/detail', [PageController::class, 'detail'])->name('detail');
 
 
 Route::middleware('auth')->group(function () {
@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('message/{message}/read', [Message::class, 'read'])->name('message.read');
-    Route::get('applications/{assignment}/answer', [Assignment::class, 'create'])->name('assignment.create');
-    Route::post('applications/{assignment}/answer', [Assignment::class, 'store'])->name('assignment.store');
+    Route::get('assignments/{assignment}/answer', [Assignment::class, 'create'])->name('assignment.create');
+    Route::post('assignments/{assignment}/answer', [Assignment::class, 'store'])->name('assignment.store');
 });
 
 Route::resources([

@@ -4,7 +4,7 @@
         <div class="col-12 col-md-6">
             <div class="box">
                 <div class="imgBx">
-                    <img src="{% static 'images/teacher.PNG' %}" alt="">
+                    <img src="/images/teacher.PNG" alt="">
                 </div>
                 <div class="content">
                     <h3>For Teacher</h3>
@@ -30,7 +30,7 @@
         <div class="col-12 col-md-6">
             <div class="box">
                 <div class="imgBx">
-                    <img src="{% static 'images/homeimg.PNG' %}" alt="">
+                    <img src="/images/homeimg.PNG" alt="">
                 </div>
                 <div class="content">
                     <h3>For Student</h3>
