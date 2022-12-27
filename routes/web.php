@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'main'])->name('main');
 Route::get('/detail', [PageController::class, 'detail'])->name('detail');
 
+Route::get('/submitted-assignment', [PageController::class, 'submitted_assignment'])->name('marks.submitted-assignment');
+Route::get('/submitted-mark', [PageController::class, 'submitted_mark'])->name('marks.submitted-mark');
+Route::get('/submit-mark', [PageController::class, 'submit_mark'])->name('assignments.submit-mark');
+Route::get('/submit-assignment', [PageController::class, 'submit_assignment'])->name('assignments.submit-assignment');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');

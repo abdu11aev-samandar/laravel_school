@@ -1,7 +1,7 @@
 <div class="research">
     <div class="row">
         <div class="col-md-4">
-            <img src="/images/mastery-based-education.PNG" alt="">
+            <img src="/images/mastery-based-education.png" alt="">
         </div>
         <div class="col-md-8">
             <div class="digital-content">

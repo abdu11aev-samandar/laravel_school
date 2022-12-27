@@ -32,7 +32,7 @@
             <br>
 
             {% endif %}
-            <p><a class="btn btn-danger" href="{% url 'classroom:enter_marks' pk=student.pk %}">Add marks</a></p>
+            <p><a class="btn btn-danger" href="{% url 'classroom:enter_marks' pk=student.pk %}">Add assignment</a></p>
 
         </div>
     </div>
